@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="" th:href="@{/css/signin.css}">
+
+</head> 
+<body>
+   <div class="login-wrapper">
+       <form action="" class="form" th:action="@{/api/signin}" th:object="${client}" method="POST">
+           <img src="" th:src="@{/img/avatar.png}" alt="" />
+           <h2>login</h2>
+           
+						                        
+           <div class="input-group">
+               <input type="text" name="LoginUser" id="LoginUser" th:field="*{email}"  required>
+               <label for="LoginUser">@Email</label>
+           </div>
+           <div th:if="${emailNotEXmessage}" th:text="${emailNotEXmessage}"
+                style="color:red;font-style:italic;">...</div>
+           <div class="input-group">
+            <input type="password" name="LoginPassword" id="LoginPassword" th:field="*{password}" required>
+            <label for="LoginPassword">Password</label>
+           </div>
+           <div th:if="${passwordmessage}" th:text="${passwordmessage}"
+                style="color:red;font-style:italic;">...</div>
+           <br>
+           <br>
+           <input type="submit" value="Login"  class="submit-btn" >
+           <br>
+           <br>
+           <a th:href="@{create}" class="create" >Create New Account </a>
+        </form> 
+        <div id="forgot-pw">
+            <form action="" class="form"></form>
+              <a href="#" class="close">&times;</a>
+              <h2>Reset Password</h2>
+              <div class="input-group">
+                <input type="email" name="email" id="email" required>
+                <label for="email">email</label>
+               </div>
+               <input type="submit" value="Submit" class="submit-btn">
+
+        </div>
+
+   </div>
+</body> 
+  
+  

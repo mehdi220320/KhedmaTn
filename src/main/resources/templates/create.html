@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="" th:href="@{/css/mystyle.css}">
+  <title>Create User</title>
+</head> 
+<body>
+   <div class="login-wrapper">
+       <form action="" class="form"   th:action="@{/api/create}" th:object="${client}" method="POST">
+           <img src="" th:src="@{/img/avatar.png}" alt="" />
+           <h2>Create New account</h2>
+           <input type="hidden" th:field="*{id}" />
+
+           <div class="input-group">
+               <input type="text" name="LoginUser" id="LoginUser" required th:field="*{nom}">
+               <label for="LoginUser">First name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="LoginUser" id="LoginUser" required th:field="*{prenom}">
+                <label for="LoginUser">Last name</label>
+            </div>
+           <div class="input-group">
+               <input type="text" name="LoginUser" id="LoginUser" required th:filed="*{username}">
+               <label for="LoginUser">User name</label>
+           </div>
+            <div class="input-group">
+                <input type="text" name="LoginUser" id="LoginUser" required th:field="*{email}">
+                <label for="LoginUser">E-mail Address</label>
+            </div>
+           <div th:if="${emailEXmessage}" th:text="${emailEXmessage}"
+                style="color:red;font-style:italic;">...</div>
+           <div th:if="${emailSYmessafe}" th:text="${emailSYmessafe}"
+                style="color:red;font-style:italic;">...</div>
+
+
+           <div class="input-group">
+            <input type="password" name="LoginPassword" id="LoginPassword" required th:field="*{password}">
+            <label for="LoginPassword">Password</label>
+           </div>
+           <div th:if="${Weakpassword}" th:text="${Weakpassword}"
+                style="color:red;font-style:italic;">...</div>
+
+           <div class="input-group">
+            <input type="password" name="LoginPassword" id="LoginPassword" required th:field="*{oldpassword}">
+            <label for="LoginPassword">Re-Enter Password</label>
+           </div>
+           <div th:if="${Repassword}" th:text="${Repassword}"
+                style="color:red;font-style:italic;">...</div>
+
+           <input type="submit" value="Create"  class="submit-btn" >
+
+       </form>
+
+   </div>
+</body> 
+  
+  
